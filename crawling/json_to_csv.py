@@ -5,7 +5,7 @@ import numpy as np
 
 # --- CONFIGURATION ---
 input_filename = 'weather_Ha noi_2023-01-01_2023-01-05.json'
-output_filename = 'weather_Hanoi_interpolated.csv'
+output_filename = 'hanoi.csv'
 
 # 1. Target columns in the specific order you requested
 target_columns = [
