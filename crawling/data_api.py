@@ -5,7 +5,7 @@ import json
 API_KEY = 'GJ2YSMXQC9ZSM29KLKNYQFCV5'
 CITY = "Ha noi"
 START_DATE = "2023-01-01"
-END_DATE = "2023-01-05" # Test with 5 days first. Increase if stable.
+END_DATE = "2023-01-05"
 
 # Generate output filename
 filename = f"weather_{CITY}_{START_DATE}_{END_DATE}.json"
@@ -17,8 +17,8 @@ def download_json_file():
     params = {
         "unitGroup": "metric",
         "key": API_KEY,
-        "include": "hours",     # IMPORTANT: Retrieve hourly details
-        "contentType": "json"   # Return format is JSON
+        "include": "hours",
+        "contentType": "json"
     }
 
     print(f"Downloading data to {filename}...")
@@ -31,8 +31,6 @@ def download_json_file():
         data = response.json()
         
         # --- SAVE FILE ---
-        # ensure_ascii=False: To preserve non-ASCII characters (e.g., Vietnamese accents)
-        # indent=4: Pretty-print the JSON for readability
         with open(filename, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
             
