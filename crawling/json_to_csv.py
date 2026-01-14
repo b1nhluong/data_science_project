@@ -22,11 +22,11 @@ cols_to_interpolate = [
 ]
 
 if not os.path.exists(input_filename):
-    print(f"❌ Error: File '{input_filename}' not found.")
+    print(f"Error: File '{input_filename}' not found.")
     exit()
 
 try:
-    print("⏳ Processing file...")
+    print("Processing file...")
     with open(input_filename, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
@@ -54,7 +54,7 @@ try:
             df[col] = np.nan # Create column if missing
 
     # --- STEP 3: LINEAR INTERPOLATION ---
-    print(f"⚙️ Applying Linear Interpolation for: {cols_to_interpolate}")
+    print(f"Applying Linear Interpolation for: {cols_to_interpolate}")
     df[cols_to_interpolate] = df[cols_to_interpolate].interpolate(method='linear', limit_direction='both')
     df[cols_to_interpolate] = df[cols_to_interpolate].fillna(0)
 
@@ -81,9 +81,9 @@ try:
     df_final = df[target_columns]
     df_final.to_csv(output_filename, index=False, encoding='utf-8')
 
-    print(f"✅ Success! Data saved to: {output_filename}")
+    print(f"Success! Data saved to: {output_filename}")
     print("🔍 Preview of interpolated values:")
     print(df_final[['datetime', 'temp', 'windgust', 'sealevelpressure']].head())
 
 except Exception as e:
-    print(f"❌ An error occurred: {e}")
+    print(f"An error occurred: {e}")
