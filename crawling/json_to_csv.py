@@ -82,7 +82,7 @@ try:
     df_final.to_csv(output_filename, index=False, encoding='utf-8')
 
     print(f"Success! Data saved to: {output_filename}")
-    print("🔍 Preview of interpolated values:")
+    print("Preview of interpolated values:")
     print(df_final[['datetime', 'temp', 'windgust', 'sealevelpressure']].head())
 
 except Exception as e:
