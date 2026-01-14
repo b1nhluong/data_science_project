@@ -22,7 +22,7 @@ with open(output_file, 'w', encoding='utf-8') as outfile:
                     
                     if not data.endswith('\n'):
                         outfile.write('\n')
-                    print("✅ Copied all content (including Header).")
+                    print("Copied all content (including Header).")
                     
                 else:
                     header = infile.readline()
@@ -33,10 +33,10 @@ with open(output_file, 'w', encoding='utf-8') as outfile:
                         
                         if not content.endswith('\n'):
                             outfile.write('\n')
-                        print("✅ Copied data (Skipped Header).")
+                        print("Copied data (Skipped Header).")
                     else:
-                        print("⚠️ File is empty or contains only a header, skipping.")
+                        print("File is empty or contains only a header, skipping.")
         else:
-            print(f"\n❌ File not found: {filename}")
+            print(f"\nFile not found: {filename}")
 
 print(f"\n--- COMPLETED: {output_file} ---")
